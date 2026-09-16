@@ -1,0 +1,192 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* Soft Candy Green palette */
+  --color-primary: #2fa36b;
+  --color-primary-dark: #1f8054;
+  --color-primary-light: #e1f5ec;
+  --color-secondary: #6bc79a;
+  --color-accent: #a9e2c4;
+
+  --color-background: #f6fbf8;
+  --color-card: #ffffff;
+
+  --color-text-primary: #2a332d;
+  --color-text-secondary: #66756d;
+
+  --color-border: #dcede3;
+
+  --color-success: #57a65b;
+  --color-success-light: #e9f5e9;
+  --color-warning: #e8b866;
+  --color-warning-light: #fbf1de;
+  --color-danger: #d64545;
+  --color-danger-light: #fbeaea;
+  --color-info: #76a9d8;
+  --color-info-light: #eaf3fb;
+  --color-purple: #a583e0;
+  --color-purple-light: #f0e9fb;
+
+  --color-sidebar: #1f2e27;
+  --color-sidebar-foreground: #e7f3ec;
+  --color-sidebar-muted: #9fb8ac;
+  --color-sidebar-border: #33453c;
+
+  --radius-card: 1.25rem;
+  --radius-control: 0.7rem;
+
+  /* Layered, tinted shadows — softer and warmer than pure black shadows.
+     Declaring these under the shadow-* theme key overrides Tailwind's
+     default scale, so shadow-xs / shadow-sm / shadow-md / shadow-lg /
+     shadow-xl utilities all use these values automatically. */
+  --shadow-xs: 0 1px 2px rgba(42, 51, 45, 0.05);
+  --shadow-sm: 0 1px 3px rgba(42, 51, 45, 0.06), 0 1px 2px rgba(42, 51, 45, 0.04);
+  --shadow-md: 0 4px 12px rgba(31, 128, 84, 0.08), 0 2px 4px rgba(42, 51, 45, 0.04);
+  --shadow-lg: 0 12px 32px rgba(31, 128, 84, 0.14), 0 4px 10px rgba(42, 51, 45, 0.05);
+  --shadow-xl: 0 24px 60px rgba(31, 128, 84, 0.18), 0 8px 20px rgba(42, 51, 45, 0.06);
+}
+
+:root {
+  color-scheme: light;
+
+  --shadow-glow: 0 0 0 1px rgba(47, 163, 107, 0.08), 0 8px 24px rgba(47, 163, 107, 0.22);
+  --shadow-inset-top: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+
+  --gradient-primary: linear-gradient(135deg, #3bb87c 0%, #1f8054 100%);
+  --gradient-primary-hover: linear-gradient(135deg, #4fc98d 0%, #27965f 100%);
+  --gradient-mesh: radial-gradient(at 15% 15%, rgba(169, 226, 196, 0.55) 0px, transparent 50%),
+    radial-gradient(at 85% 10%, rgba(118, 169, 216, 0.28) 0px, transparent 45%),
+    radial-gradient(at 85% 85%, rgba(165, 131, 224, 0.2) 0px, transparent 45%),
+    radial-gradient(at 10% 85%, rgba(107, 199, 154, 0.35) 0px, transparent 45%);
+}
+
+* {
+  border-color: var(--color-border);
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "cv11", "ss01";
+}
+
+h1,
+h2,
+h3,
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+/* Thin, soft scrollbars that match the theme */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-accent) transparent;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: var(--color-accent);
+  border-radius: 999px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Consistent visible focus ring across the app for accessibility */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  from {
+    background-position: -200% 0;
+  }
+  to {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.22s ease-out;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-scale-in {
+  animation: scale-in 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-float {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--color-primary-light) 25%,
+    #effaf4 50%,
+    var(--color-primary-light) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.6s ease-in-out infinite;
+}
