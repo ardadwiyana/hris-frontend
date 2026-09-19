@@ -196,7 +196,7 @@ export default function DashboardPage() {
             <StatCard label="Total Employees" value={stats.totalEmployees} icon={<Users className="h-5 w-5" />} accent="primary" description="Karyawan terdaftar" />
             <StatCard label="Present Today" value={stats.presentToday} icon={<CalendarCheck className="h-5 w-5" />} accent="success" description="Hadir hari ini" />
             <StatCard label="Departments" value={stats.totalDepartments} icon={<Building2 className="h-5 w-5" />} accent="info" description="Departemen aktif" />
-            <StatCard label="Pending Leave" value={pendingLeaveCount} icon={<ClipboardList className="h-5 w-5" />} accent="warning" description="Menunggu tindakan" />
+            <StatCard label="Leave Requests" value={pendingLeaveCount} icon={<ClipboardList className="h-5 w-5" />} accent="warning" description="Menunggu tindakan" />
           </>
         )}
       </div>
